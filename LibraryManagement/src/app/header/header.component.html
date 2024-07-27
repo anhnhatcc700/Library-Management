@@ -1,0 +1,90 @@
+<!-- Header -->
+<div class="header">
+
+    <!-- Logo -->
+    <div class="header-left">
+        <a routerLink="/layout/dashboard/admin" class="logo">
+            <img src="assets/img/logo.png" width="40" height="40" alt="">
+        </a>
+    </div>
+    <!-- /Logo -->
+
+    <div class="header-center">
+        <h1 class="text-white">HUFLIT Library</h1>
+    </div>
+
+    <a id="mobile_btn" class="mobile_btn" href="javascript:"><i class="fa fa-bars"></i></a>
+
+    <!-- Header Menu -->
+    <ul class="nav user-menu">
+
+        <li>
+            <a class="report-btn">
+                <span class="report-btn" *ngIf="currentAccountPermission?.role?.name === 'Reader'">
+                    <i class="bi bi-cart-fill header-cart-icon" (click)="op.toggle($event)"></i>
+                </span>
+            </a>
+        </li>
+
+        <li class="nav-item dropdown has-arrow main-drop">
+            <a href="javascript:" class="dropdown-toggle nav-link" style="color: #fff !important; " data-bs-toggle="dropdown">
+                <span class="user-img"><img src="assets/img/profiles/avatar-21.jpg" alt=""></span>
+                <span>{{ currentAccountPermission?.email }}</span>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/layout/employees/employeeprofile">My Profile</a>
+                <a class="dropdown-item" routerLink="/layout/settings/company-settings">Settings</a>
+                <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+        </li>
+        
+    </ul>
+    <!-- /Header Menu -->
+
+    <!-- Mobile Menu -->
+    <div class="dropdown mobile-user-menu">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" routerLink="/layout/employees/employeeprofile">My Profile</a>
+            <a class="dropdown-item" routerLink="/layout/settings/company-settings">Settings</a>
+            <a class="dropdown-item">Logout</a>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+</div>
+<!-- /Header -->
+
+<p-overlayPanel #op (onShow)="getCart()">
+    <ng-template pTemplate="content">
+        <div class="text-right">
+            {{ remaining }}/3
+        </div>
+        <div class="row p-1" *ngFor="let item of bookCart">
+            <div class="col-2">
+                <p-galleria [value]="[item.bookImageBase64]" [circular]="true" [showThumbnails]="false"
+                    [containerStyle]="{ 'max-width': '200px' }">
+                    <ng-template pTemplate="item" let-item>
+                        <img style="border-radius: 5%;" [src]="item" class="cart-rsp-Image" />
+                    </ng-template>
+                </p-galleria>
+            </div>
+            <div class="col-9" style="max-width: 13rem;">
+                <div style="font-size: 12px;" class="cart-title">{{ item.bookName }}</div> 
+                <div style="font-size: 12px;" class="text">Chapter {{ item.chapter }}</div>
+            </div>
+            <div class="col-1">
+                <button
+                    pButton 
+                    pRipple 
+                    icon="fa fa-trash" 
+                    class="p-button-rounded btn-primary"
+                    (click)="removeFromCart(item.bookChapterId || '')"
+                ></button>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary submit-btn request-btn" (click)="request()">Request</button>
+        </div>
+    </ng-template>
+</p-overlayPanel>

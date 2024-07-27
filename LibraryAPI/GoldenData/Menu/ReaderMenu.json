@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Books",
+    "code": "book",
+    "icon": "fa fa-book",
+    "moduleEnum": "BookSearch",
+    "route": "book-search"
+  },
+  {
+    "name": "My Library Card",
+    "code": "library-card",
+    "icon": "fa fa-address-card",
+    "moduleEnum": "BookCategory",
+    "route": "library-card-detail/reader"
+  }
+]

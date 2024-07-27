@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.librarydemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/splash1"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@drawable/splash1"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Activity.Fragments.LibraryCardFragment.NewRecordDetail"
+            android:exported="false" />
+        <activity
+            android:name=".Author.AuthorListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Author.AddAuthor"
+            android:exported="false" />
+        <activity
+            android:name=".Author.EditAuthor"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Fragments.BookFragment.BookDetail"
+            android:exported="false" />
+        <activity
+            android:name=".Sample.SampleActivity"
+            android:exported="false" />
+        <activity android:name=".Activity.LoginRegister.Login" />
+        <activity android:name=".NewPassword" />
+        <activity android:name=".CodeForgotPassword" />
+        <activity
+            android:name=".ForgotPassword"
+            android:parentActivityName=".Activity.LoginRegister.Login" />
+        <activity android:name=".UpdateBook" />
+        <activity android:name=".ArrayLog" />
+        <activity android:name=".ChangPass" />
+        <activity android:name=".UserInformation" />
+        <activity android:name=".LogInformation" />
+        <activity android:name=".BookInformation" /> <!-- <activity android:name=".Publisher.AddPublisher"/> -->
+        <!-- <activity android:name=".Publisher.EditPublisher"/> -->
+        <!-- <activity android:name=".Publisher.ListPublisher"/> -->
+        <activity
+            android:name=".Activity.LayOutAndLisView"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activity.LoginRegister.SignUp" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Publisher.PublisherInformation"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Publisher.AddPublisher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Publisher.EditPublisher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Publisher.PublisherDetail"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+    </application>
+
+</manifest>
